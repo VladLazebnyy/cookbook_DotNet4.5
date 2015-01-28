@@ -1,4 +1,4 @@
-name             'NetFramework'
+name             'cookbook_DotNet4.5'
 maintainer       'YOUR_COMPANY_NAME'
 maintainer_email 'YOUR_EMAIL'
 license          'All rights reserved'
