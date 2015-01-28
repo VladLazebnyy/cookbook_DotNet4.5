@@ -1,0 +1,7 @@
+DEPENDENCIES
+  NetFramework
+    path: .
+    metadata: true
+
+GRAPH
+  NetFramework (0.1.0)
