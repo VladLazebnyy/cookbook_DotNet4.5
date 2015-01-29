@@ -1,7 +1,7 @@
 DEPENDENCIES
-  NetFramework
+  cookbook_DotNet4.5
     path: .
     metadata: true
 
 GRAPH
-  NetFramework (0.1.0)
+  cookbook_DotNet4.5 (0.1.0)
