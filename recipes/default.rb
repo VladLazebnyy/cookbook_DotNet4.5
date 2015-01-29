@@ -7,9 +7,10 @@
 # All rights reserved - Do Not Redistribute
 #
 if platform?('windows')
-	unless File.exists?('C:/Windows/Microsoft.NET/Framework/v4.5')
-		windows_package 'Microsoft .NET Framework 4.5.2' do
+	unless File.exists?('C:/Windows/Microsoft.NET/Framework/v4.0.30319/Microsoft.Activities.Build.dll')
+		windows_feature 'NetFx4Extended-ASPNET45' do
   			source 'http://www.microsoft.com/en-ie/download/confirmation.aspx?id=42642/NDP452-KB2901907-x86-x64-AllOS-ENU.exe'
+  			options '/quiet /norestart'
   			installer_type :inno
   			action :install
   		end

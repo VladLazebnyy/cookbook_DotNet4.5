@@ -8,11 +8,11 @@ Vagrant.require_version ">= 1.7.0"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = hostname
-  config.vm.box = "Win32"
-  config.vm.communicator = "winrm"
-  config.vm.provision "shell", path: "install.cmd"
+  config.vm.box = "opentable/win-2012r2-standard-amd64-nocm"
+  #config.vm.communicator = "winrm"
+  #config.vm.provision "shell", path: "install.cmd"
   config.vm.network :private_network, ip: "33.33.33.10"
-  config.vm.network "public_network"
+  #config.vm.network "public_network"
   config.vm.guest = :windows
   config.vm.network :forwarded_port, guest: 3389, host: 3389, id: "rdp", auto_correct: true
   config.vm.network :forwarded_port, guest: 22, host: 2222, id: "ssh", auto_correct: true
@@ -32,10 +32,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.json = {
-      'NetFramework' => {
+      'cookbook_DotNet4.5' => {
         'version' => :latest
       }
     }
-    chef.add_recipe("NetFramework")
+    chef.add_recipe("cookbook_DotNet4.5")
   end
 end
