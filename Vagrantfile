@@ -38,4 +38,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     }
     chef.add_recipe("cookbook_DotNet4.5")
   end
+
+  config.vm.provision :serverspec do |spec|
+      spec.pattern = './spec/*_spec.rb'
+  end
 end
