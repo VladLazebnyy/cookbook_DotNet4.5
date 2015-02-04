@@ -5,10 +5,9 @@
 # Copyright 2015, YOUR_COMPANY_NAME
 #
 # All rights reserved - Do Not Redistribute
-#
 if platform?('windows')
 	if win_version.windows_server_2008? || win_version.windows_server_2008_r2?
-    if Registry.key_exists?('HKLM\SOFTWARE\Microsoft')
+    if Registry.key_exists?('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319\SKUs\.NETFramework,Version=v4.5.1')
 		  Chef::Log.info('Microsoft Framework .NET 4.5 already installed on this platform.')
     else
       windows_package 'Microsoft .NET Framework 4.5' do
@@ -20,7 +19,7 @@ if platform?('windows')
       end
     end  
   elsif  win_version.windows_server_2012? || win_version.windows_server_2012_r2?
-	  windows_feature 'NetFx4Extended-ASPNET45' do
+    windows_feature 'NetFx4Extended-ASPNET45' do
     	action :install
     end
   else
